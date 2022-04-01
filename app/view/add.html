@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="main">
+    <h3 align="center" style="color: darkgreen;">KOA FOR MYSQL</h3>
+    <br>
+        <form action="/add?_csrf=<%=csrf%>" method="POST">
+        
+            用户名: <input type="text" name="username" required /> <br><br>  
+      
+            密　码: <input type="password" name="password" required type="password" />  <br><br>
+      
+            <button class="btn" type="submit">提交</button>
+        </form>
+</div >
+
+
+</body>
+<style>
+    body{ background: #eee;}
+    *{ margin: 0;padding: 0;}
+    .main{ width: 400px; height: 260px;
+    padding: 25px 20px;
+     margin: 200px auto; box-shadow: 1px 2px 2px 1px rgba(1,1,1,0.2);}
+     input{width: 80%; height: 30px; line-height: 30px;}
+     .btn{ background: #075cad; width: 100%; text-align: center; color: #fff; border: none; padding: 10px; margin-top: 20px;}
+</style>
+</html>
