@@ -1,7 +1,8 @@
 # demo
 
-this is my first egg-demo
+包含登录权限的接口系统 restful风格api+ 自动生成swagger-ui文档
 
+## 用到的插件 egg-swagger-doc
 ## QuickStart
 
 <!-- add docs here for user -->
@@ -13,7 +14,7 @@ see [egg docs][egg] for more detail.
 ```bash
 $ npm i
 $ npm run dev
-$ open http://localhost:7001/
+$ swagger预览地址 http://localhost:7001/
 ```
 
 ### Deploy
