@@ -52,6 +52,11 @@ config.swaggerdoc = {
       '.html': 'ejs',
     },
   }
+  config.multipart ={
+    mode:'file',
+    fileSize:'30mb',
+    fileExtensions:['.txt']
+  }
   config.mysql = {
     client: {
       // host

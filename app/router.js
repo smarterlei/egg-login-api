@@ -15,6 +15,6 @@ module.exports = app => {
   router.get('/api/getdata',app.jwt, controller.news.getuserData); // 需要在路由配置 apikey权限
   router.get('/register', controller.add.index);
   router.post('/add', controller.add.add);
-
+  router.post('/upload', controller.file.upload); // 上传接口
  
 };
