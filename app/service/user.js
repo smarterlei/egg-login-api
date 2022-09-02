@@ -1,20 +1,31 @@
 const { Service } = require("egg");
 class NewUser extends Service {
-  async getData(query) {
-    // console.log(query, "---query");
+  async getUserData(query) {
+     console.log(query, "---query on egg.js");
     const total = await this.app.mysql.query(
       "select count(*) as total from user"
     );
-    console.log(query.pageSize,'size')
-    let data = await this.app.mysql.select("user", {
-      limit: Number(query.pageSize),
-      offset: (query.currentPage - 1) * query.pageSize,
-    });
+    // let data = await this.app.mysql.select("user", {
+    //   limit: Number(query.pageSize),
+    //   offset: (query.currentPage - 1) * query.pageSize,    
+    // });
+    const TABLE_NAME ='user'
+    const QUERY_STR = 'name';
+    let sql;
+    if(query.name){
+    sql = `select  * from ${TABLE_NAME} where name like "%${query.name}%" LIMIT ${(query.currentPage - 1) * query.pageSize},${query.pageSize} ; `;
+    }
+    else{
+      sql = `select  * from ${TABLE_NAME} LIMIT ${(query.currentPage - 1) * query.pageSize},${query.pageSize} ; `;
+    }
+    let result =  await this.app.mysql.query(sql)
+ 
     console.log(query.pageSize,'total length')
     return {
-      data: data,
+      data: result,
       currentPage: query.currentPage,
-      size: total[0].total,
+      pageSize:query.pageSize,
+      total: total[0].total,
     };
   }
 

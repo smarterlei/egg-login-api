@@ -16,5 +16,8 @@ module.exports = app => {
   router.get('/register', controller.add.index);
   router.post('/add', controller.add.add);
   router.post('/upload', controller.file.upload); // 上传接口
+  router.get('/jianshu', controller.book.index);
+  router.get('/getInfo', controller.home.getInfo);
+  router.get('/getRouters', controller.home.getRouters);
  
 };
