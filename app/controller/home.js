@@ -17,9 +17,9 @@ class HomeController extends Controller {
       * @summary 用户列表
       * @description 测试swagger文档 
       * @router get /userlist
-      * @request query number currentPage 1
-      * @request query number pageSize 5
-      * @request query string name 
+      * @request query number *currentPage eg:1
+      * @request query number *pageSize eg:5
+      * @request query string name null
       * @response 200 testResponse
       */
   async user() {
@@ -76,36 +76,17 @@ class HomeController extends Controller {
               "deptName": "涧光股份",
               "orderNum": "0",
               "leader": "1",
-              "leaderName": null,
-              "phone": null,
-              "email": null,
-              "status": "0",
-              "delFlag": null,
-              "parentName": null,
               "children": []
           },
           "roles": [
               {
-                  "searchValue": null,
-                  "createBy": null,
-                  "createTime": null,
-                  "updateBy": null,
-                  "updateTime": null,
-                  "remark": null,
                   "params": {},
                   "roleId": 1,
                   "roleName": "超级管理员",
                   "roleKey": "admin",
                   "roleSort": "1",
                   "dataScope": "1",
-                  "menuCheckStrictly": false,
-                  "deptCheckStrictly": false,
                   "status": "0",
-                  "delFlag": null,
-                  "flag": false,
-                  "menuIds": null,
-                  "deptIds": null,
-                  "admin": true
               }
           ],
           "roleIds": null,

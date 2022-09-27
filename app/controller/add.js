@@ -8,16 +8,27 @@ const Controller = require('egg').Controller;
 
 
 class addController extends Controller {
-  async index() {
+  //async index() {
      // 用户访问页面时 生成的秘钥
     // await this.ctx.render('add',{
     //   csrf:this.ctx.csrf
     // })
-    await this.ctx.render('add')
+    //await this.ctx.render('add')
  
-  }
+  //}
+
   async add() {        
     await this.service.home.registerPost(this.ctx.request.body)
+  }
+
+  async addUser(){
+    await this.service.home.addUser(this.ctx.request.body)
+  }
+  async editUser(){
+    await this.service.home.editUser(this.ctx.request.body)
+  }
+  async delUser(){
+    await this.service.home.delUser(this.ctx.request.body)
   }
 }
 

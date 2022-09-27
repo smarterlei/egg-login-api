@@ -8,6 +8,7 @@ const { Service } = require("egg");
         console.log('==========================')
         const username = this.ctx.query.username;
         const password = this.ctx.query.password;
+ 
         console.log(username,password,'new')
         if(username){
             const res = await this.app.mysql.select('register')         
@@ -17,8 +18,8 @@ const { Service } = require("egg");
                 this.ctx.body=currentUser.username+'账户已存在'
             }
             else{
-                    await this.app.mysql.insert('register', { username, password });
-                    this.ctx.body=username+'新账户创建成功'                
+                 await this.app.mysql.insert('register', { username, password });
+                 this.ctx.body=username+'新账户创建成功'                
             }
             
         } 
@@ -42,6 +43,31 @@ const { Service } = require("egg");
             }
             
         }
+ 
+     }
+
+     async addUser(request){
+        console.log('==========================', request )
+        const {name,sex,tel,job,age,hobby,url} = request      
+                    await this.app.mysql.insert('user', {name,sex,tel,job,age,hobby,url});
+                    this.ctx.body=name+'員工创建成功'                 
+ 
+     }
+     async editUser(request){
+        console.log('==========================', request )
+        const {id,name,sex,tel,job,age,hobby,url} = request
+        
+                    await this.app.mysql.update('user', {id,name,sex,tel,job,age,hobby,url});
+                    this.ctx.body=name+'員工修改成功'                 
+ 
+     }
+
+     async delUser(request){
+        console.log('==========================', request )
+        const {id} = request
+        
+                    await this.app.mysql.delete('user', {id});
+                    this.ctx.body='員工删除成功'                 
  
      }
  

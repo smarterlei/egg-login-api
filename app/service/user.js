@@ -11,13 +11,14 @@ class NewUser extends Service {
     // });
     const TABLE_NAME ='user'
     const QUERY_STR = 'name';
-    let sql;
-    if(query.name){
+    let sql
+   if(query.name){
     sql = `select  * from ${TABLE_NAME} where name like "%${query.name}%" LIMIT ${(query.currentPage - 1) * query.pageSize},${query.pageSize} ; `;
-    }
-    else{
-      sql = `select  * from ${TABLE_NAME} LIMIT ${(query.currentPage - 1) * query.pageSize},${query.pageSize} ; `;
-    }
+   }
+   else{
+     sql=`select  * from ${TABLE_NAME}  LIMIT ${(query.currentPage - 1) * query.pageSize},${query.pageSize} ; `
+   }
+ 
     let result =  await this.app.mysql.query(sql)
  
     console.log(query.pageSize,'total length')
