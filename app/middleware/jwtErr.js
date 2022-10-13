@@ -5,7 +5,7 @@ module.exports = (options, app) => {
         } catch (e) {
             ctx.status = 401;
             ctx.body = {
-                msg: '身份过期,重新登录',
+                msg: '身份过期,或接口异常',
                 code: -1,
             }
         }

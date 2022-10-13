@@ -20,3 +20,7 @@ exports.swaggerdoc = {
   package: 'egg-swagger-doc' // 指定包名称
 }
  
+exports.cors ={
+  enable:true,
+  package:'egg-cors'
+}

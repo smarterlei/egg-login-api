@@ -12,14 +12,14 @@ const { Service } = require("egg");
         console.log(username,password,'new')
         if(username){
             const res = await this.app.mysql.select('register')         
-            let currentUser=res.find(item=>item.username==username)
+            let currentUser=res.find(item=>item.username==username) // 查找数据库是否存在当前用户
  
             if(currentUser && currentUser.username){
                 this.ctx.body=currentUser.username+'账户已存在'
             }
             else{
                  await this.app.mysql.insert('register', { username, password });
-                 this.ctx.body=username+'新账户创建成功'                
+                 this.ctx.body=username+'新账户创建成功'                 
             }
             
         } 

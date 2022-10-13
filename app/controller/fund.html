@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let  object =[
+    {
+        "name": "贵州茅台",
+        "symbol": "SH600519",
+        "current": 1705,
+        "chg": -55,
+        "amount": 2001119794,
+        "percent": "-3.13%",
+        "datetime": "2022-10-13 09:38:22"
+    },
+    {
+        "name": "中国软件",
+        "symbol": "SH600536",
+        "current": 50.37,
+        "chg": "+2.7",
+        "amount": 634815787,
+        "percent": "5.66%",
+        "datetime": "2022-10-13 09:38:22"
+    }]
+    console.log(flat(object[0]))
+    let outer =[]
+    object.forEach(item => {
+        let data =[]
+    for (const key in item) {
+        data.push(item[key])
+         console.log(item[key])
+     }
+     console.log(data,'改造后的数据 拉平的数据')
+     outer.push(data)
+  });
+
+  console.log(outer)
+ 
+    
+    </script>
+</body>
+</html>

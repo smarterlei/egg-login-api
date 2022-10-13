@@ -78,6 +78,13 @@ config.swaggerdoc = {
   config.jwt={
     secret:'123456'
   }
+   //解决跨域
+   config.cors = {
+    origin: '*',//允许的端口和地址 * 代表允许所有域名访问接口
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',//允许的请求方式
+    credentials:true//允许前端带cookie
+ };
+
   config.api='http://www.phonegap100.com/';
   const userConfig = {
     // myAppName: 'egg',

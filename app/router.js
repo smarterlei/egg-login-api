@@ -8,8 +8,11 @@ module.exports = app => {
   app.router.redirect('/', '/swagger-ui.html', 302);
   // router.get('/register', controller.home.index);
   router.post('/login', controller.home.login); // 登录接口
+  router.post('/logout', controller.home.logout)
 
-  router.get('/news', controller.news.newsList);
+  router.get('/system/user/deptTree',controller.home.deptTree) // 部门树  
+ 
+  router.get('/system/dept/list', controller.home.deptList);
  
   router.get('/list/',app.jwt, controller.home.user);
   router.get('/api/getdata',app.jwt, controller.news.getuserData); // 需要在路由配置 apikey权限
@@ -26,4 +29,6 @@ module.exports = app => {
   router.get('/getInfo', controller.home.getInfo);
   router.get('/getRouters', controller.home.getRouters);
  
+  //获取指数行情
+  router.get('/getfund',controller.fund.home)
 };
