@@ -1,4 +1,5 @@
 const { Service } = require("egg");
+
  class newHome extends Service {
      async userlist(){
          let data= await this.app.mysql.query('select * from register');
@@ -25,49 +26,56 @@ const { Service } = require("egg");
         } 
      }
 
-     async registerPost(request){
-        console.log('==========================', request )
-        const username =  request.username;
-        const password =  request.password;
-        console.log(username,password,'new')
-        if(username && password){
-            const res = await this.app.mysql.select('register')         
-            let currentUser=res.find(item=>item.username==username)
- 
-            if(currentUser && currentUser.username){
-                this.ctx.body=currentUser.username+'账户已存在'
-            }
-            else{
-                    await this.app.mysql.insert('register', { username, password });
-                    this.ctx.body=username+'新账户创建成功'                
-            }
-            
-        }
- 
-     }
+
 
      async addUser(request){
-        console.log('==========================', request )
-        const {name,sex,tel,job,age,hobby,url} = request      
-                    await this.app.mysql.insert('user', {name,sex,tel,job,age,hobby,url});
-                    this.ctx.body=name+'員工创建成功'                 
- 
+        console.log('==========adduser================', request )
+        const {name,sex,tel,job,age,hobby,url} = request 
+        if(!name || !tel){
+            this.ctx.body={
+                code:'400',
+                data:'名字和电话不能为空'
+            }
+        }  
+        else{
+            await this.app.mysql.insert('user', {name,sex,tel,job,age,hobby,url});
+            this.ctx.body=name+'員工创建成功'                 
+
+        }   
+            
      }
      async editUser(request){
         console.log('==========================', request )
         const {id,name,sex,tel,job,age,hobby,url} = request
-        
-                    await this.app.mysql.update('user', {id,name,sex,tel,job,age,hobby,url});
-                    this.ctx.body=name+'員工修改成功'                 
+        if(!name || !tel || !id){
+            this.ctx.body={
+                code:'400',
+                data:'id、名字和电话不能为空'
+            }
+        }  
+        else{
+            await this.app.mysql.update('user', {id,name,sex,tel,job,age,hobby,url});
+            this.ctx.body=name+'員工修改成功'        
+        }
+                           
  
      }
 
      async delUser(request){
         console.log('==========================', request )
         const {id} = request
+        if (id){
+            await this.app.mysql.delete('user', {id});
+            this.ctx.body='id是'+id+'的员工删除成功'   
+        }
+        else{
+            this.ctx.body={
+                code:'400',
+                data:'接口异常，请传入员工id'
+            }
+        }
         
-                    await this.app.mysql.delete('user', {id});
-                    this.ctx.body='員工删除成功'                 
+                                 
  
      }
  

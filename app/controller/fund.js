@@ -32,7 +32,7 @@ class fundController extends Controller {
      
      outerData.push(data)
   });
-    console.log(outerData,' 写入数据库的原始数据')
+      console.log(outerData,' 写入数据库的原始数据 写入原始数据')
       this.addRows(outerData)
     
   }

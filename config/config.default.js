@@ -75,6 +75,22 @@ config.swaggerdoc = {
     // 是否加载到 agent 上，默认关闭
     agent: false,
   };
+  // redis 缓存数据库  多个redis 缓存库 ，改为clients
+  config.redis = {
+    clients: {
+        db0: { host: '127.0.0.1',
+          port: 6379,
+          password: '',
+          db: '0',  
+        },
+        db1: { host: '127.0.0.1',
+          port: 6379,
+          password: '',
+          db: '1',  
+        },
+      }
+ 
+  }
   config.jwt={
     secret:'123456'
   }

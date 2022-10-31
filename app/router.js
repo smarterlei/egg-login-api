@@ -6,7 +6,8 @@
 module.exports = app => {
   const { router, controller,middleware } = app;
   app.router.redirect('/', '/swagger-ui.html', 302);
-  // router.get('/register', controller.home.index);
+
+  router.post('/register', controller.add.register); // 注册用户
   router.post('/login', controller.home.login); // 登录接口
   router.post('/logout', controller.home.logout)
 
@@ -17,7 +18,7 @@ module.exports = app => {
   router.get('/list/',app.jwt, controller.home.user);
   router.get('/api/getdata',app.jwt, controller.news.getuserData); // 需要在路由配置 apikey权限
    
-  router.post('/register', controller.add.add); // 注册用户
+
   // 员工功能
   router.get('/userlist', controller.home.user); // 查看列表
   router.post('/addUser', controller.add.addUser);  // 新增
@@ -31,4 +32,7 @@ module.exports = app => {
  
   //获取指数行情
   router.get('/getfund',controller.fund.home)
+
+  // 测试  redis
+  router.get('/getRedis',controller.test.testRedis)
 };

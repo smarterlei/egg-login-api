@@ -17,8 +17,8 @@ class addController extends Controller {
  
   //}
 
-  async add() {        
-    await this.service.home.registerPost(this.ctx.request.body)
+  async register() {        
+    await this.service.user.registerPost(this.ctx.request.body)
   }
 
   async addUser(){
@@ -33,5 +33,5 @@ class addController extends Controller {
 }
 
 module.exports = addController;
-
  
+

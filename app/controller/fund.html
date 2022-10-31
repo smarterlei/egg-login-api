@@ -27,7 +27,7 @@
         "percent": "5.66%",
         "datetime": "2022-10-13 09:38:22"
     }]
-    console.log(flat(object[0]))
+ 
     let outer =[]
     object.forEach(item => {
         let data =[]
@@ -39,9 +39,142 @@
      outer.push(data)
   });
 
-  console.log(outer)
- 
+  let  fund = [
+  {
+    "date": "2022-10-12",
+    "nav": "1.7185",
+    "percentage": "0.25",
+    "value": "1.7185"
+  },
+  {
+    "date": "2022-10-11",
+    "nav": "1.7142",
+    "percentage": "-0.09",
+    "value": "1.7142"
+  },
+  {
+    "date": "2022-10-10",
+    "nav": "1.7157",
+    "percentage": "-2.78",
+    "value": "1.7157"
+  },
+  {
+    "date": "2022-09-30",
+    "nav": "1.7647",
+    "percentage": "-0.19",
+    "value": "1.7647"
+  },
+  {
+    "date": "2022-09-29",
+    "nav": "1.7681",
+    "percentage": "0.14",
+    "value": "1.7681"
+  },
+  {
+    "date": "2022-09-28",
+    "nav": "1.7657",
+    "percentage": "-1.0",
+    "value": "1.7657"
+  },
+  {
+    "date": "2022-09-27",
+    "nav": "1.7835",
+    "percentage": "1.77",
+    "value": "1.7835"
+  },
+  {
+    "date": "2022-09-26",
+    "nav": "1.7524",
+    "percentage": "-0.44",
+    "value": "1.7524"
+  },
+  {
+    "date": "2022-09-23",
+    "nav": "1.7602",
+    "percentage": "0.02",
+    "value": "1.7602"
+  },
+  {
+    "date": "2022-09-22",
+    "nav": "1.7598",
+    "percentage": "-1.0",
+    "value": "1.7598"
+  },
+  {
+    "date": "2022-09-21",
+    "nav": "1.7775",
+    "percentage": "-0.81",
+    "value": "1.7775"
+  },
+  {
+    "date": "2022-09-20",
+    "nav": "1.7921",
+    "percentage": "0.11",
+    "value": "1.7921"
+  },
+  {
+    "date": "2022-09-19",
+    "nav": "1.7901",
+    "percentage": "0.17",
+    "value": "1.7901"
+  },
+  {
+    "date": "2022-09-16",
+    "nav": "1.7871",
+    "percentage": "-2.19",
+    "value": "1.7871"
+  },
+  {
+    "date": "2022-09-15",
+    "nav": "1.8272",
+    "percentage": "-0.1",
+    "value": "1.8272"
+  },
+  {
+    "date": "2022-09-14",
+    "nav": "1.8290",
+    "percentage": "-0.91",
+    "value": "1.8290"
+  },
+  {
+    "date": "2022-09-13",
+    "nav": "1.8458",
+    "percentage": "0.63",
+    "value": "1.8458"
+  },
+  {
+    "date": "2022-09-09",
+    "nav": "1.8342",
+    "percentage": "1.38",
+    "value": "1.8342"
+  },
+  {
+    "date": "2022-09-08",
+    "nav": "1.8092",
+    "percentage": "-0.1",
+    "value": "1.8092"
+  },
+  {
+    "date": "2022-09-07",
+    "nav": "1.8111",
+    "percentage": "-0.56",
+    "value": "1.8111"
+  }
+]
     
+  let newfund = fund.map(item=>{
+      return Number(item.percentage)
+  })
+
+  let sum = 0;
+  newfund.reduce(function(pre,curr) {
+
+        sum=pre+curr;
+
+        return sum;
+
+        });
+        console.log(newfund,sum)      
     </script>
 </body>
 </html>

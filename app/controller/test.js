@@ -15,14 +15,19 @@ class TestController extends Controller {
       * @request query string str 随机字符串
       * @response 200 testResponse
       */
-    async test3() {
-        const { ctx } = this;
+    async testRedis() {
+        const { ctx,app } = this;
 
-        const str = ctx.query.str
-        var data =await this.ctx.service.test.index()      
-        ctx.body = await {
-            message: data
-        }
+        // const str = ctx.query.str
+        // var data =await this.ctx.service.test.index()      
+        // ctx.body = await {
+        //     message: data
+        // }
+        // redis 测试
+        //  const rs= await app.redis.get('db0').set('ceshi','剥夺政治权利终身')
+        const rsn = await app.redis.get('db0').get('ceshi')
+        const test2 = await app.redis.get('db1').set('ceshi1','添加第二个数据库')
+        ctx.body='操作成功  '+rsn
     }
 
  
